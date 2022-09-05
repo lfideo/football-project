@@ -3,7 +3,7 @@ import pandas as pd
 pd.set_option('display.max_columns', 30)
 
 res = []
-for x in range(1, 6):
+for x in range(1, 7):
     url = "https://api.sofascore.com/api/v1/unique-tournament/17/season/41886/events/round/"f"{x}"
 
     payload = ""
@@ -41,3 +41,5 @@ pl.rename(columns={
     'time.injuryTime1': 'injuryTime1', 'time.injuryTime2': 'injuryTime2'
 }, inplace=True
 )
+
+pl.startTime = pd.to_datetime(pl.startTime, unit='s')
